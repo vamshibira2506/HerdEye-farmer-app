@@ -1,0 +1,6 @@
+{
+  "name": "HerdEye — Farmer Application",
+  "description": "Smart livestock rumination monitoring, intrusion alerts, worker management, and structured veterinarian health report sharing for dairy farmers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
