@@ -1,11 +1,9 @@
-FROM node:20-alpine AS build
+FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build
-
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+RUN npm install -g serve
 EXPOSE 8080
-CMD ["sh", "-c", "sed -i 's/80;/8080;/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
